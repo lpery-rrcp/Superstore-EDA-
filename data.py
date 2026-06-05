@@ -5,4 +5,9 @@ df = pd.read_csv(
     encoding="latin1"
 )
 
-print(df.head())
+print("Shape: ", df.shape)
+
+print("\nColumns: ", df.columns.tolist())
+print("\nData Types: ", df.dtypes)
+print("\nMissing Values: ", df.isnull().sum())
+print("\nSummary Statistics: \n", df.describe())
