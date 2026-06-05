@@ -9,9 +9,11 @@ df = pd.read_csv(
 # print("Shape: ", df.shape)
 # print("\nColumns: ", df.columns.tolist())
 # print("\nData Types: ", df.dtypes)
-# print("\nMissing Values: ", df.isnull().sum())
 # print("\nSummary Statistics: \n", df.describe())
 
 # Cleaning and preprocessing
 print("Duplicates: ", df.duplicated().sum())
 print("Missing Values: ", df.isnull().sum())
+
+# convert Order Date to datetime
+df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
