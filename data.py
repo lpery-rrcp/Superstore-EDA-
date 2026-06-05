@@ -17,3 +17,7 @@ print("Missing Values: ", df.isnull().sum())
 
 # convert Order Date to datetime
 df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
+df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
+
+print("\nData Types after conversion: ", df.dtypes)
+print("\nMissing Values after conversion: ", df.isnull().sum())
