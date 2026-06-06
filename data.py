@@ -37,3 +37,12 @@ sales_by_category = (
 )
 
 print("\nSales by Category: \n", sales_by_category)
+
+# sub category
+sales_by_sub_category = (
+    df.groupby('Sub-Category')['Sales']
+    .sum()
+    .sort_values(ascending=False)
+)
+
+print("\nSales by Sub-Category: \n", sales_by_sub_category)
