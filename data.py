@@ -36,7 +36,7 @@ sales_by_category = (
     .sort_values(ascending=False)
 )
 
-print("\nSales by Category: \n", sales_by_category)
+# print("\nSales by Category: \n", sales_by_category)
 
 # sub category
 sales_by_sub_category = (
@@ -45,4 +45,13 @@ sales_by_sub_category = (
     .sort_values(ascending=False)
 )
 
-print("\nSales by Sub-Category: \n", sales_by_sub_category)
+# print("\nSales by Sub-Category: \n", sales_by_sub_category)
+
+# Profit by Category
+profit_by_category = (
+    df.groupby('Category')['Profit']
+    .sum()
+    .sort_values(ascending=False)
+)
+
+print("\nProfit by Category: \n", profit_by_category)
