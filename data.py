@@ -12,8 +12,8 @@ df = pd.read_csv(
 # print("\nSummary Statistics: \n", df.describe())
 
 # Cleaning and preprocessing
-print("Duplicates: ", df.duplicated().sum())
-print("Missing Values: ", df.isnull().sum())
+# print("Duplicates: ", df.duplicated().sum())
+# print("Missing Values: ", df.isnull().sum())
 
 # convert Order Date to datetime
 df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
@@ -24,7 +24,16 @@ df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
 
 
 # Top metrics
-print("\nTotal Sales: ", df['Sales'].sum())
-print("\nTotal Profit: ", df['Profit'].sum())
-print("\nTotal Orders: ", df['Order ID'].nunique())
-print("\nTotal Customers: ", df['Customer ID'].nunique())
+# print("\nTotal Sales: ", df['Sales'].sum())
+# print("\nTotal Profit: ", df['Profit'].sum())
+# print("\nTotal Orders: ", df['Order ID'].nunique())
+# print("\nTotal Customers: ", df['Customer ID'].nunique())
+
+# Sales by Category
+sales_by_category = (
+    df.groupby('Category')['Sales']
+    .sum()
+    .sort_values(ascending=False)
+)
+
+print("\nSales by Category: \n", sales_by_category)
