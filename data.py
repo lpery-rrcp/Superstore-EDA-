@@ -54,4 +54,13 @@ profit_by_category = (
     .sort_values(ascending=False)
 )
 
-print("\nProfit by Category: \n", profit_by_category)
+# print("\nProfit by Category: \n", profit_by_category)
+
+# regional sales
+sales_by_region = (
+    df.groupby('Region')['Sales']
+    .sum()
+    .sort_values(ascending=False)
+)
+
+print("\nSales by Region: \n", sales_by_region)
