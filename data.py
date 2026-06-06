@@ -19,5 +19,12 @@ print("Missing Values: ", df.isnull().sum())
 df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
 df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
 
-print("\nData Types after conversion: ", df.dtypes)
-print("\nMissing Values after conversion: ", df.isnull().sum())
+# print("\nData Types after conversion: ", df.dtypes)
+# print("\nMissing Values after conversion: ", df.isnull().sum())
+
+
+# Top metrics
+print("\nTotal Sales: ", df['Sales'].sum())
+print("\nTotal Profit: ", df['Profit'].sum())
+print("\nTotal Orders: ", df['Order ID'].nunique())
+print("\nTotal Customers: ", df['Customer ID'].nunique())
