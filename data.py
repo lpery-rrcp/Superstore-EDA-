@@ -63,4 +63,13 @@ sales_by_region = (
     .sort_values(ascending=False)
 )
 
-print("\nSales by Region: \n", sales_by_region)
+# print("\nSales by Region: \n", sales_by_region)
+
+# regional profit
+profit_by_region = (
+    df.groupby('Region')['Profit']
+    .sum()
+    .sort_values(ascending=False)
+)
+
+print("\nProfit by Region: \n", profit_by_region)
