@@ -72,4 +72,14 @@ profit_by_region = (
     .sort_values(ascending=False)
 )
 
-print("\nProfit by Region: \n", profit_by_region)
+# print("\nProfit by Region: \n", profit_by_region)
+
+# top customers
+top_customers = (
+    df.groupby('Customer Name')['Sales']
+    .sum()
+    .sort_values(ascending=False)
+    .head(10)
+)
+
+print("\nTop Customers: \n", top_customers)
