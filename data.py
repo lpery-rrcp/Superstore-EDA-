@@ -82,4 +82,16 @@ top_customers = (
     .head(10)
 )
 
-print("\nTop Customers: \n", top_customers)
+# print("\nTop Customers: \n", top_customers)
+
+# time series
+df['Year'] = df['Order Date'].dt.year
+df['Month'] = df['Order Date'].dt.month
+
+monthly_sales = (
+    df.groupby(['Year', 'Month'])['Sales']
+    .sum()
+    .reset_index()
+)
+
+print("\nMonthly Sales: \n", monthly_sales)
