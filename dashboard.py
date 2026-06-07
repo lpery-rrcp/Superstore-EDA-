@@ -8,7 +8,9 @@ df = pd.read_csv(
 df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
 df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
 
-#
+# Sales
+
+# Sales by Category
 
 
 def getSalesByCategory():
@@ -48,6 +50,28 @@ def getSalesBySubCategory():
     plt.show()
 
 
+def getSalesByRegion():
+    sales_by_region = (
+        df.groupby('Region')['Sales']
+        .sum()
+        .sort_values(ascending=False)
+    )
+
+    sales_by_region.plot(
+        kind='bar', color=['#1f77b4', '#ff7f0e', '#2ca02c'])
+
+    plt.title('Sales by Region')
+    plt.xlabel('Region')
+    plt.ylabel('Total Sales')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+    plt.show()
+
+# Profits
+
+
 # Test the function
-getSalesByCategory()
-getSalesBySubCategory()
+# getSalesByCategory()
+# getSalesBySubCategory()
+getSalesByRegion()
