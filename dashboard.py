@@ -4,6 +4,11 @@ df = pd.read_csv(
     "data/Sample - Superstore.csv",
     encoding="latin1"
 )
+# convert Order Date to datetime
+df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
+df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
+
+#
 
 
 def getSalesByCategory():
