@@ -71,7 +71,27 @@ def getSalesByRegion():
 # Profits
 
 
+def getProfitByRegion():
+    profit_by_region = (
+        df.groupby('Region')['Profit']
+        .sum()
+        .sort_values(ascending=False)
+    )
+
+    profit_by_region.plot(
+        kind='bar', color=['#1f77b4', '#ff7f0e', '#2ca02c'])
+
+    plt.title('Profit by Region')
+    plt.xlabel('Region')
+    plt.ylabel('Total Profit')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+    plt.show()
+
+
 # Test the function
 # getSalesByCategory()
 # getSalesBySubCategory()
-getSalesByRegion()
+# getSalesByRegion()
+getProfitByRegion()
