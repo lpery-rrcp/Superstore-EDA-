@@ -12,10 +12,9 @@ df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
 
 # Sales by Category
 
-# Get sales based on category
-
 
 def getSalesByCategory():
+    # Get sales based on category
     sales_by_category = (
         df.groupby('Category')['Sales']
         .sum()
@@ -32,10 +31,9 @@ def getSalesByCategory():
 
     plt.show()
 
-# get sales based on sub category
-
 
 def getSalesBySubCategory():
+    # get sales based on sub category
     sales_by_sub_category = (
         df.groupby('Sub-Category')['Sales']
         .sum()
@@ -53,10 +51,9 @@ def getSalesBySubCategory():
 
     plt.show()
 
-# Get sales based on region
-
 
 def getSalesByRegion():
+    # Get sales based on region
     sales_by_region = (
         df.groupby('Region')['Sales']
         .sum()
@@ -76,10 +73,9 @@ def getSalesByRegion():
 
 # Profits
 
-# Get profit based on region
-
 
 def getProfitByRegion():
+    # Get profit based on region
     profit_by_region = (
         df.groupby('Region')['Profit']
         .sum()
@@ -97,10 +93,9 @@ def getProfitByRegion():
 
     plt.show()
 
-# Get profit based on category
-
 
 def getProfitByCategory():
+    # Get profit based on category
     profit_by_category = (
         df.groupby('Category')['Profit']
         .sum()
@@ -119,9 +114,8 @@ def getProfitByCategory():
     plt.show()
 
 
-# Customer details
-
 def getTopCustomers():
+    # Get top customers based on sales
     top_customers = (
         df.groupby('Customer Name')['Sales']
         .sum()
