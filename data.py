@@ -14,4 +14,11 @@ total_profit = df['Profit'].sum()
 
 profit_margin = (total_profit / total_sales) * 100 if total_sales != 0 else 0
 
+avg_order_value = df['Sales'].mean()
+
+customer_count = df['Customer ID'].nunique()
+
+# information about the dataset
 print(profit_margin)
+print(avg_order_value)
+print(customer_count)
