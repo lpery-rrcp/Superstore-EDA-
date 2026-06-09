@@ -12,6 +12,8 @@ df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
 
 # Sales by Category
 
+# Get sales based on category
+
 
 def getSalesByCategory():
     sales_by_category = (
@@ -29,6 +31,8 @@ def getSalesByCategory():
     plt.tight_layout()
 
     plt.show()
+
+# get sales based on sub category
 
 
 def getSalesBySubCategory():
@@ -48,6 +52,8 @@ def getSalesBySubCategory():
     plt.tight_layout()
 
     plt.show()
+
+# Get sales based on region
 
 
 def getSalesByRegion():
@@ -70,6 +76,8 @@ def getSalesByRegion():
 
 # Profits
 
+# Get profit based on region
+
 
 def getProfitByRegion():
     profit_by_region = (
@@ -88,6 +96,8 @@ def getProfitByRegion():
     plt.tight_layout()
 
     plt.show()
+
+# Get profit based on category
 
 
 def getProfitByCategory():
@@ -109,9 +119,32 @@ def getProfitByCategory():
     plt.show()
 
 
+# Customer details
+
+def getTopCustomers():
+    top_customers = (
+        df.groupby('Customer Name')['Sales']
+        .sum()
+        .sort_values(ascending=False)
+        .head(10)
+    )
+
+    top_customers.plot(
+        kind='bar', color=['#1f77b4', '#ff7f0e', '#2ca02c'])
+
+    plt.title('Top Customers by Sales')
+    plt.xlabel('Customer Name')
+    plt.ylabel('Total Sales')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+    plt.show()
+
+
 # Test the function
 # getSalesByCategory()
 # getSalesBySubCategory()
 # getSalesByRegion()
 # getProfitByRegion()
-getProfitByCategory()
+# getProfitByCategory()
+getTopCustomers()
