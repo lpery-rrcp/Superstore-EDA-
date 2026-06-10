@@ -109,6 +109,26 @@ def getProfitByCategory():
     plt.show()
 
 
+def getProfitBySubCategory():
+    # Get profit based on sub category
+    profit_by_sub_category = (
+        df.groupby('Sub-Category')['Profit']
+        .sum()
+        .sort_values(ascending=False)
+    )
+
+    profit_by_sub_category.plot(
+        kind='bar', color=['#1f77b4', '#ff7f0e', '#2ca02c'])
+
+    plt.title('Profit by Sub-Category')
+    plt.xlabel('Sub-Category')
+    plt.ylabel('Total Profit')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+    plt.show()
+
+
 def getTopCustomers():
     # Get top customers based on sales
     top_customers = (
@@ -152,5 +172,6 @@ def calculateMonthlySales():
 # getSalesByRegion()
 # getProfitByRegion()
 # getProfitByCategory()
+getProfitBySubCategory()
 # getTopCustomers()
-calculateMonthlySales()
+# calculateMonthlySales()
