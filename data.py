@@ -18,7 +18,10 @@ avg_order_value = df['Sales'].mean()
 
 customer_count = df['Customer ID'].nunique()
 
+monthly_sales = df.groupby(df['Order Date'].dt.to_period('M'))['Sales'].sum()
+
 # information about the dataset
 print(profit_margin)
 print(avg_order_value)
 print(customer_count)
+print(monthly_sales)
