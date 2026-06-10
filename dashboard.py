@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+
 df = pd.read_csv(
     "data/Sample - Superstore.csv",
     encoding="latin1"
@@ -7,10 +8,6 @@ df = pd.read_csv(
 # convert Order Date to datetime
 df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
 df['Ship Date'] = pd.to_datetime(df['Ship Date'], errors='coerce')
-
-# Sales
-
-# Sales by Category
 
 
 def getSalesByCategory():
@@ -70,8 +67,6 @@ def getSalesByRegion():
     plt.tight_layout()
 
     plt.show()
-
-# Profits
 
 
 def getProfitByRegion():
@@ -135,10 +130,27 @@ def getTopCustomers():
     plt.show()
 
 
+def calculateMonthlySales():
+    # Get monthly sales
+    monthly_sales = df.groupby(df['Order Date'].dt.to_period('M'))[
+        'Sales'].sum()
+
+    monthly_sales.plot(kind='line', marker='o', color='#1f77b4')
+
+    plt.title('Monthly Sales')
+    plt.xlabel('Month')
+    plt.ylabel('Total Sales')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+    plt.show()
+
+
 # Test the function
 # getSalesByCategory()
 # getSalesBySubCategory()
 # getSalesByRegion()
 # getProfitByRegion()
 # getProfitByCategory()
-getTopCustomers()
+# getTopCustomers()
+calculateMonthlySales()

@@ -20,8 +20,16 @@ customer_count = df['Customer ID'].nunique()
 
 monthly_sales = df.groupby(df['Order Date'].dt.to_period('M'))['Sales'].sum()
 
+plt.plot(
+    monthly_sales.index.to_timestamp(),
+    monthly_sales.values,
+    marker='o',
+    linestyle='-',
+    color='#1f77b4'
+)
+
 # information about the dataset
-print(profit_margin)
-print(avg_order_value)
-print(customer_count)
-print(monthly_sales)
+# print(profit_margin)
+# print(avg_order_value)
+# print(customer_count)
+# print(monthly_sales)
