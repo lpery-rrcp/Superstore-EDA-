@@ -172,6 +172,6 @@ def calculateMonthlySales():
 # getSalesByRegion()
 # getProfitByRegion()
 # getProfitByCategory()
-getProfitBySubCategory()
+# getProfitBySubCategory()
 # getTopCustomers()
 # calculateMonthlySales()
